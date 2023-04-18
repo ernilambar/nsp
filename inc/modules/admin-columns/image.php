@@ -38,7 +38,7 @@ add_action(
 				add_filter(
 					'manage_edit-' . $p . '_columns',
 					function( $columns ) {
-						$columns['nsp_image'] = 'Image';
+						$columns['nsp_image'] = esc_html__( 'Image', 'nsp' );
 						return $columns;
 					},
 					10,

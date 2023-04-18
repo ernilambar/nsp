@@ -50,11 +50,11 @@ add_action(
 	'admin_footer',
 	function() {
 		?>
-		<div id="nsp-template-dialog" title="Select Template" style="display:none;">
+		<div id="nsp-template-dialog" title="<?php echo esc_attr__( 'Select Template', 'nsp' ); ?>" style="display:none;">
 			<?php $all_templates = wp_get_theme()->get_page_templates(); ?>
 
 			<select name="nsp-select-template" id="nsp-select-template">
-				<option value="">&mdash; Select &mdash;</option>
+				<option value=""><?php esc_html_e( '&mdash; Select &mdash;', 'nsp' ); ?></option>
 
 				<?php foreach ( $all_templates as $template_file => $template_title ) : ?>
 					<option value="<?php echo esc_attr( $template_file ); ?>"><?php echo esc_html( $template_title ); ?></option>
