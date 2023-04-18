@@ -19,8 +19,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'NSP_VERSION', '1.0.0' );
+define( 'NSP_SLUG', 'nsp' );
 define( 'NSP_BASE_NAME', basename( __DIR__ ) );
 define( 'NSP_BASE_FILEPATH', __FILE__ );
 define( 'NSP_BASE_FILENAME', plugin_basename( __FILE__ ) );
 define( 'NSP_DIR', rtrim( plugin_dir_path( __FILE__ ), '/' ) );
 define( 'NSP_URL', rtrim( plugin_dir_url( __FILE__ ), '/' ) );
+
+// Include autoload.
+if ( file_exists( NSP_DIR . '/vendor/autoload.php' ) ) {
+	require_once NSP_DIR . '/vendor/autoload.php';
+	require_once NSP_DIR . '/vendor/ernilambar/optioner/optioner.php';
+	require_once NSP_DIR . '/vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+}
+
+// Updater.
+$nsp_updater = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker( 'https://github.com/ernilambar/nsp', __FILE__, NSP_SLUG );
+$nsp_updater->getVcsApi()->enableReleaseAssets();
