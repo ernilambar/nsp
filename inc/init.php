@@ -10,6 +10,7 @@ require_once NSP_DIR . '/inc/helpers.php';
 require_once NSP_DIR . '/inc/options.php';
 require_once NSP_DIR . '/inc/hooks.php';
 require_once NSP_DIR . '/inc/notify.php';
+require_once NSP_DIR . '/inc/ajax.php';
 
 $all_items = nsp_get_options_items();
 
