@@ -1,0 +1,58 @@
+.is-hidden {
+	display: none;
+}
+
+#nsp_id {
+	width: 65px;
+}
+
+#nsp_image {
+	width: 110px;
+}
+
+#nsp_menu_order {
+	width: 75px;
+}
+
+.nsp-image-wrap {
+	position: relative;
+	max-width: 80px;
+
+	.nsp-image-buttons {
+		background-color: rgba(0, 0, 0, 0.3);
+		width: 100%;
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		top: 0;
+		left: 0;
+		gap: 3px;
+
+		a span {
+			color: #eee;
+		}
+
+		a:hover span {
+			color: #ccc;
+		}
+	}
+
+	.nsp-image-content img {
+		width: 100%;
+	}
+}
+
+#nsp-template-dialog {
+	display: none;
+
+	select {
+		margin-top: 20px;
+	}
+}
+
+.template-file {
+
+	&.error {
+		text-decoration: line-through;
+	}
+}
