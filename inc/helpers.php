@@ -173,3 +173,14 @@ function nsp_add_array_item_to_position( $main_array, $element = array(), $posit
 
 	return array_merge( array_slice( $main_array, 0, $position ), $element, array_slice( $main_array, $position ) );
 }
+
+/**
+ * Return placeholder image URL.
+ *
+ * @since 1.0.0
+ *
+ * @return string Full image URL.
+ */
+function nsp_get_placeholder_image_url() {
+	return NSP_URL . '/build/img/no-image.png';
+}
