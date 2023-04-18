@@ -61,3 +61,57 @@ add_action(
 	2
 );
 
+/**
+ * Render image sizes table.
+ *
+ * @since 1.0.0
+ */
+function nsp_render_media_image_sizes_field() {
+	$details = nsp_get_image_sizes();
+	if ( ! is_array( $details ) || 0 === count( $details ) ) {
+		return;
+	}
+
+	echo '<table>';
+	?>
+		<tr>
+			<th>Sn</th>
+			<th>Image</th>
+			<th>Dimension</th>
+			<th>Crop</th>
+		</tr>
+
+		<?php $cnt = 1; ?>
+
+		<?php foreach ( $details as $key => $item ) : ?>
+
+			<tr>
+				<td><?php echo absint( $cnt ); ?></td>
+				<td><?php echo esc_html( $key ); ?></td>
+				<td><?php echo sprintf( esc_html__( '%1$s X %2$s', 'nsp' ), absint( $item['width'] ), absint( $item['height'] ) ); ?></td>
+				<td><?php echo ( $item['crop'] ) ? 'Y' : ''; ?></td>
+			</tr>
+
+			<?php ++$cnt; ?>
+
+		<?php endforeach; ?>
+
+	<?php
+	echo '</table>';
+}
+
+/**
+ * Add image size table in media settings page.
+ *
+ * @since 1.0.0
+ */
+add_action(
+	'admin_init',
+	function() {
+		register_setting( 'media', 'nsp_media_table_field' );
+
+		add_settings_section( 'nsp_media_section_image_sizes', esc_html__( 'Image Sizes', 'nsp' ), function(){}, 'media' );
+
+		add_settings_field( 'nsp_media_table_field', esc_html__( 'Sizes', 'nsp' ), 'nsp_render_media_image_sizes_field', 'media', 'nsp_media_section_image_sizes' );
+	}
+);
