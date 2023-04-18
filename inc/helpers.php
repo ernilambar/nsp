@@ -195,7 +195,7 @@ function nsp_get_placeholder_image_url() {
 function nsp_get_image_sizes( $size = '' ) {
 	$wp_additional_image_sizes = wp_get_additional_image_sizes();
 
-	$sizes                        = array();
+	$sizes = array();
 
 	$get_intermediate_image_sizes = get_intermediate_image_sizes();
 
@@ -222,4 +222,10 @@ function nsp_get_image_sizes( $size = '' ) {
 	}
 
 	return $sizes;
+}
+
+if ( ! function_exists( 'str_contains' ) ) {
+	function str_contains( string $haystack, string $needle ) {
+		return empty( $needle ) || strpos( $haystack, $needle ) !== false;
+	}
 }
