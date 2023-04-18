@@ -1,2 +1,0 @@
-# nsp
-NSP WP Plugin
