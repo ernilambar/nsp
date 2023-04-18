@@ -54,6 +54,11 @@ function nsp_get_options_items() {
 			'label' => esc_html__( 'Disable Templates', 'nsp' ),
 			'file'  => 'templates.php',
 		),
+		'disable_debug_log'     => array(
+			'id'    => 'disable_debug_log',
+			'label' => esc_html__( 'Disable Debug Log', 'nsp' ),
+			'file'  => 'debug-log.php',
+		),
 	);
 }
 
@@ -101,4 +106,10 @@ function nsp_get_default_options() {
 	}
 
 	return apply_filters( 'nsp_option_defaults', $def_options );
+}
+
+function nsp_debug_log_exists() {
+	$debug_file = ABSPATH . 'wp-content/debug.log';
+
+	return ( is_readable( $debug_file ) && file_exists( $debug_file ) ) ? true : false;
 }
