@@ -50,7 +50,7 @@ add_action(
 					function( $column, $post_id ) {
 						if ( 'nsp_image' === $column ) {
 							$post_thumbnail_id = get_post_thumbnail_id( $post_id );
-							$thumbnail_url     = NSP_URL . '/src/img/no-image.png';
+							$thumbnail_url     = nsp_get_placeholder_image_url();
 
 							$thumbnail_full_url = '';
 

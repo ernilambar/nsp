@@ -122,7 +122,7 @@ class NSP_Templates_List extends WP_List_Table {
 		$link_open  = '';
 		$link_close = '';
 
-		$image_url = NSP_URL . '/src/img/no-image.png';
+		$image_url = nsp_get_placeholder_image_url();
 
 		if ( 0 !== strlen( $item['screenshot'] ) ) {
 			$image_url = add_query_arg(

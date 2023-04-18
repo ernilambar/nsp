@@ -35,7 +35,7 @@ add_action(
 			'nsp-columns',
 			'NSP_COLUMNS',
 			array(
-				'thumbnail_default_url' => NSP_URL . '/src/img/no-image.png',
+				'thumbnail_default_url' => nsp_get_placeholder_image_url(),
 			)
 		);
 	},
