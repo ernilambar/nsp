@@ -11,7 +11,7 @@ add_action(
 		add_filter(
 			'manage_edit-page_columns',
 			function( $columns ) {
-				$columns['nsp_template'] = esc_html__( 'Template' );
+				$columns['nsp_template'] = esc_html__( 'Template', 'nsp' );
 				return $columns;
 			},
 			10,
