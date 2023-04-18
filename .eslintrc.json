@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["plugin:@wordpress/eslint-plugin/esnext"],
+  "parserOptions": {
+    "requireConfigFile": false
+  },
+  "globals": {
+    "wp": true,
+    "ajaxurl": true,
+    "NSP_COLUMNS": true,
+    "jQuery": true
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "error",
+    "no-alert": "warn",
+    "vars-on-top": "warn"
+  }
+}

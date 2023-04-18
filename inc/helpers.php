@@ -108,3 +108,61 @@ function nsp_debug_log_exists() {
 
 	return ( is_readable( $debug_file ) && file_exists( $debug_file ) ) ? true : false;
 }
+
+/**
+ * Get post types.
+ *
+ * @since 1.0.0
+ *
+ * @return array Post types list.
+ */
+function nsp_get_post_types() {
+	$list = array();
+
+	$list = get_post_types(
+		array(
+			'public' => true,
+		),
+		'objects'
+	);
+
+	return $list;
+}
+
+/**
+ * Return template title from file name.
+ *
+ * @since 1.0.5
+ *
+ * @param string $file Filename.
+ * @return string Title.
+ */
+function nsp_addons_get_template_title( $file ) {
+	$output = null;
+
+	$all_templates = wp_get_theme()->get_page_templates();
+
+	if ( isset( $all_templates[ $file ] ) ) {
+		$output = $all_templates[ $file ];
+	}
+
+	return $output;
+}
+
+/**
+ * Add given element in the array in the specified position.
+ *
+ * @since 1.0.6
+ *
+ * @param array $main_array Main array.
+ * @param array $element Array element to be inserted.
+ * @param int   $position Position.
+ * @return array Updated array.
+ */
+function nsp_add_array_item_to_position( $main_array, $element = array(), $position = 0 ) {
+	if ( empty( $element ) ) {
+		return $main_array;
+	}
+
+	return array_merge( array_slice( $main_array, 0, $position ), $element, array_slice( $main_array, $position ) );
+}
