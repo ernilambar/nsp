@@ -92,11 +92,13 @@ function nsp_get_option( $key ) {
  * @return array Default options.
  */
 function nsp_get_default_options() {
-	return apply_filters(
-		'nsp_option_defaults',
-		array(
-			'disable_columns' => '',
-			'disable_assets'  => '',
-		)
-	);
+	$def_options = array();
+
+	$all_items = nsp_get_options_items();
+
+	foreach ( $all_items as $item ) {
+		$def_options[ $item['id'] ] = false;
+	}
+
+	return apply_filters( 'nsp_option_defaults', $def_options );
 }
