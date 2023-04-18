@@ -5,4 +5,4 @@
  * @package NSP
  */
 
-add_filter( 'woocommerce_background_image_regeneration', '__return_false' );
+new NSP_Woo();

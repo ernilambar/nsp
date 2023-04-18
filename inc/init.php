@@ -5,11 +5,18 @@
  * @package NSP
  */
 
+// Load classes.
+require_once NSP_DIR . '/inc/classes/notify.php';
+NSP_Notify::init();
+require_once NSP_DIR . '/inc/classes/file.php';
+require_once NSP_DIR . '/inc/classes/assets.php';
+require_once NSP_DIR . '/inc/classes/woo.php';
+require_once NSP_DIR . '/inc/classes/templates-list.php';
+
 // Load files.
 require_once NSP_DIR . '/inc/helpers.php';
 require_once NSP_DIR . '/inc/options.php';
 require_once NSP_DIR . '/inc/hooks.php';
-require_once NSP_DIR . '/inc/notify.php';
 require_once NSP_DIR . '/inc/ajax.php';
 
 $all_items = nsp_get_options_items();

@@ -1,16 +1,16 @@
 <?php
 /**
- * NSPNotify
+ * NSP_Notify
  *
  * @package NSP
  */
 
 /**
- * NSPNotify class.
+ * NSP_Notify class.
  *
  * @since 1.0.0
  */
-class NSPNotify {
+class NSP_Notify {
 	const NOTICES_KEY = 'nsp_notices';
 
 	/**
@@ -29,6 +29,7 @@ class NSPNotify {
 	 */
 	public static function display_notices() {
 		$notices = self::get_notices();
+
 		if ( empty( $notices ) ) {
 			return;
 		}
