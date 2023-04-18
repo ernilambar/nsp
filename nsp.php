@@ -33,6 +33,9 @@ if ( file_exists( NSP_DIR . '/vendor/autoload.php' ) ) {
 	require_once NSP_DIR . '/vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 }
 
+// Init.
+require_once NSP_DIR . '/inc/init.php';
+
 // Updater.
 $nsp_updater = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker( 'https://github.com/ernilambar/nsp', __FILE__, NSP_SLUG );
 $nsp_updater->getVcsApi()->enableReleaseAssets();
