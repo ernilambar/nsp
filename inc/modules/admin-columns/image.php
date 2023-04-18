@@ -61,7 +61,7 @@ add_action(
 
 							echo '<div class="nsp-image-wrap">';
 							echo '<div class="nsp-image-content">';
-							echo "<img class='nsp-image-thumbnail' src='$thumbnail_url' />";
+							echo "<img class='nsp-image-thumbnail' src='" . esc_url( $thumbnail_url ) . "' />";
 							echo '</div><!-- .nsp-image-content -->';
 
 							if ( current_user_can( 'upload_files' ) ) {

@@ -1,0 +1,44 @@
+.appearance_page_templates {
+
+	#name {
+		width: 200px;
+	}
+
+	#screenshot {
+		width: 60px;
+	}
+
+	.widefat td {
+		color: #000;
+	}
+
+	figure {
+		margin: 0;
+	}
+
+	figure img {
+		width: 100%;
+		aspect-ratio: 12 / 9;
+	}
+
+	#TB_window {
+		background-color: #ddd;
+	}
+
+	#TB_window img#TB_Image {
+		border: 0;
+	}
+
+	.template-description {
+		margin: 0 0 5px;
+	}
+
+	.template-links {
+		margin-top: 5px;
+	}
+
+	.nsp-templates-form {
+		clear: both;
+	}
+
+}

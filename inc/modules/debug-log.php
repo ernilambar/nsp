@@ -114,7 +114,7 @@ class NSP_File {
 /**
  * Register debug log page.
  *
- * @since 1.0.3
+ * @since 1.0.0
  */
 function nsp_addons_register_debug_log_page() {
 	add_management_page( 'Debug Log', 'Debug Log', 'manage_options', 'nsp-debug-log', 'nsp_addons_render_debug_log_page' );
@@ -125,7 +125,7 @@ add_action( 'admin_menu', 'nsp_addons_register_debug_log_page' );
 /**
  * Render debug log page.
  *
- * @since 1.0.3
+ * @since 1.0.0
  */
 function nsp_addons_render_debug_log_page() {
 	?>

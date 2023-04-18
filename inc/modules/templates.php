@@ -19,7 +19,7 @@ if ( ! function_exists( 'str_contains' ) ) {
 /**
  * Register templates page.
  *
- * @since 1.0.6
+ * @since 1.0.0
  */
 add_action(
 	'admin_menu',
@@ -37,39 +37,28 @@ function nsp_addons_render_templates_page() {
 
 		<hr class="wp-header-end">
 
-		<div style="clear:both;"></div>
-
-		<form method="post">
+		<form method="post" class="nsp-templates-form">
 			<?php
 			$wp_list_table->prepare_items();
 			$wp_list_table->views();
 			$wp_list_table->display();
 			?>
-		</form>
+		</form><!-- .nsp-templates-form -->
 
 	</div><!-- .wrap -->
 	<?php
 }
 
 add_action(
-	'admin_head',
-	function() {
-		echo '<style>';
-		echo '.appearance_page_templates #name{width: 200px;}';
-		echo '.appearance_page_templates #screenshot{width: 60px;}';
-		echo '.appearance_page_templates .widefat td{color:#000;}';
-		echo '.appearance_page_templates figure{margin:0;}';
-		echo '.appearance_page_templates figure img{width:100%;aspect-ratio: 12 / 9;}';
-		echo '.appearance_page_templates #TB_window{background-color:#ddd;}';
-		echo '.appearance_page_templates #TB_window img#TB_Image{border:0;}';
-		echo '</style>';
-	}
-);
-
-add_action(
 	'admin_enqueue_scripts',
-	function() {
+	function( $hook ) {
+		if ( 'appearance_page_templates' !== $hook ) {
+			return;
+		}
+
 		add_thickbox();
+
+		wp_enqueue_style( 'nsp-templates', NSP_URL . '/build/templates.css', array(), NSP_VERSION );
 	}
 );
 
@@ -116,7 +105,7 @@ class NSP_Templates_List extends WP_List_Table {
 
 		$active_theme = get_option( 'stylesheet' );
 
-		$output .= '<div class="template-description" style="margin:0 0 5px;">';
+		$output .= '<div class="template-description">';
 		$output .= '<span>' . wp_trim_words( $item['description'], 30, '&hellip;' ) . '</span>';
 		$output .= '</div><!-- .template-description -->';
 
@@ -201,7 +190,7 @@ class NSP_Templates_List extends WP_List_Table {
 		$links = $this->get_template_link_items( $item );
 
 		if ( count( $links ) > 0 ) {
-			$output .= '<div class="template-links" style="margin-top:5px;">';
+			$output .= '<div class="template-links">';
 
 			$output .= implode( ' | ', $links );
 

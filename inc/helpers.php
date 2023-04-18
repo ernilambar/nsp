@@ -103,6 +103,13 @@ function nsp_get_default_options() {
 	return apply_filters( 'nsp_option_defaults', $def_options );
 }
 
+/**
+ * Check whether log file exists.
+ *
+ * @since 1.0.0
+ *
+ * @return bool True if exists; otherwise false.
+ */
 function nsp_debug_log_exists() {
 	$debug_file = ABSPATH . 'wp-content/debug.log';
 
@@ -132,7 +139,7 @@ function nsp_get_post_types() {
 /**
  * Return template title from file name.
  *
- * @since 1.0.5
+ * @since 1.0.0
  *
  * @param string $file Filename.
  * @return string Title.
@@ -152,7 +159,7 @@ function nsp_addons_get_template_title( $file ) {
 /**
  * Add given element in the array in the specified position.
  *
- * @since 1.0.6
+ * @since 1.0.0
  *
  * @param array $main_array Main array.
  * @param array $element Array element to be inserted.
