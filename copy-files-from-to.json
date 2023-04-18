@@ -15,7 +15,8 @@
         "!scripts/**/*",
         "!languages/**/*",
         "!node_modules/**/*",
-        "!deploy/**/*"
+        "!deploy/**/*",
+				"!vendor/yahnis-elsts/plugin-update-checker/languages"
       ],
       "to": "deploy/temp/"
     }
