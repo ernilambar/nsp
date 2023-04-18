@@ -58,9 +58,10 @@ add_action(
 			$obj->add_field(
 				'nsp_settings_tab',
 				array(
-					'id'    => $item['id'],
-					'type'  => 'toggle',
-					'title' => $item['label'],
+					'id'      => $item['id'],
+					'type'    => 'toggle',
+					'title'   => $item['label'],
+					'default' => false,
 				)
 			);
 		}
