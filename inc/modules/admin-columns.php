@@ -5,6 +5,9 @@
  * @package NSP
  */
 
+// Load columns.
+require_once NSP_DIR . '/inc/modules/admin-columns/media.php';
+
 add_action(
 	'admin_enqueue_scripts',
 	function() {
