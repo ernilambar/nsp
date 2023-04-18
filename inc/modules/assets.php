@@ -13,7 +13,7 @@
  * @param string $src The source URL of the enqueued style.
  * @return string Modified URL.
  */
-function nsp_remove_query_string_from_static_files( $src, $handle ) {
+function nsp_remove_query_string_from_static_files( $src ) {
 	$debug_mode = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? true : false;
 
 	if ( ! $debug_mode ) {
@@ -28,5 +28,5 @@ function nsp_remove_query_string_from_static_files( $src, $handle ) {
 	return $src;
 }
 
-add_filter( 'style_loader_src', 'nsp_remove_query_string_from_static_files', 10, 2 );
-add_filter( 'script_loader_src', 'nsp_remove_query_string_from_static_files', 10, 2 );
+add_filter( 'style_loader_src', 'nsp_remove_query_string_from_static_files' );
+add_filter( 'script_loader_src', 'nsp_remove_query_string_from_static_files' );

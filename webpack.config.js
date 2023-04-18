@@ -6,5 +6,6 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		columns: path.resolve( __dirname, 'src', 'columns.js' ),
+		templates: path.resolve( __dirname, 'src', 'templates.js' ),
 	},
 };
