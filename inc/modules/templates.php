@@ -97,7 +97,7 @@ class NSP_Templates_List extends WP_List_Table {
 
 	function column_cb( $item ) {
 		return sprintf(
-			'<label class="screen-reader-text" for="stylesheet_' . $item['ID'] . '">' . sprintf( __( 'Select %s' ), 'asdfasdf' ) . '</label>'
+			'<label class="screen-reader-text" for="stylesheet_' . $item['ID'] . '">' . sprintf( __( 'Select %s', 'nsp' ), $item['name'] ) . '</label>'
 			. "<input type='checkbox' name='stylesheets[]' id='stylesheet_{$item['ID']}' value='{$item['ID']}' />"
 		);
 	}

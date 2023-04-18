@@ -34,11 +34,6 @@ function nsp_get_options_items() {
 			'label' => esc_html__( 'Disable Emoji', 'nsp' ),
 			'file'  => 'emoji.php',
 		),
-		'disable_media_columns' => array(
-			'id'    => 'disable_media_columns',
-			'label' => esc_html__( 'Disable Media Columns', 'nsp' ),
-			'file'  => 'media-columns.php',
-		),
 		'disable_quick_links'   => array(
 			'id'    => 'disable_quick_links',
 			'label' => esc_html__( 'Disable Quick Links', 'nsp' ),
