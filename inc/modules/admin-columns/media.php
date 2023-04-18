@@ -16,6 +16,8 @@
 add_filter(
 	'manage_media_columns',
 	function( $posts_columns ) {
+		$posts_columns = nsp_add_array_item_to_position( $posts_columns, array( 'nsp_id' => esc_html__( 'ID', 'nsp' ) ), 1 );
+
 		$posts_columns['dimensions'] = esc_html__( 'Dimensions', 'nsp' );
 		$posts_columns['filesize']   = esc_html__( 'File Size', 'nsp' );
 
@@ -35,6 +37,10 @@ add_filter(
 add_action(
 	'manage_media_custom_column',
 	function( $column_name, $post_id ) {
+		if ( 'nsp_id' === $column_name ) {
+			echo absint( $post_id );
+		}
+
 		if ( 'dimensions' === $column_name ) {
 			if ( wp_attachment_is_image( $post_id ) ) {
 				list($url, $width, $height) = wp_get_attachment_image_src( $post_id, 'full' );
