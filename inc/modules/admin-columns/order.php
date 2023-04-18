@@ -38,7 +38,7 @@ add_action(
 				add_filter(
 					'manage_edit-' . $p . '_columns',
 					function( $columns ) {
-						$columns['nsp_menu_order'] = 'Order';
+						$columns['nsp_menu_order'] = esc_html__( 'Order', 'nsp' );
 						return $columns;
 					},
 					10,

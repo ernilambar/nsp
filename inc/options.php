@@ -32,12 +32,12 @@ add_action(
 		$obj->set_quick_links(
 			array(
 				array(
-					'text' => 'Plugin Page',
+					'text' => esc_html__( 'Plugin Page', 'nsp' ),
 					'url'  => 'https://github.com/ernilambar/nsp',
 					'type' => 'primary',
 				),
 				array(
-					'text' => 'Get Support',
+					'text' => esc_html__( 'Get Support', 'nsp' ),
 					'url'  => 'https://github.com/ernilambar/nsp/issues',
 					'type' => 'secondary',
 				),

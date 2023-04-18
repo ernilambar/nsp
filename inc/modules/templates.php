@@ -24,7 +24,7 @@ if ( ! function_exists( 'str_contains' ) ) {
 add_action(
 	'admin_menu',
 	function() {
-		add_theme_page( 'Templates', 'Templates', 'manage_options', 'templates', 'nsp_addons_render_templates_page', 1 );
+		add_theme_page( esc_html__( 'Templates', 'nsp' ), esc_html__( 'Templates', 'nsp' ), 'manage_options', 'templates', 'nsp_addons_render_templates_page', 1 );
 	}
 );
 
@@ -32,8 +32,8 @@ function nsp_addons_render_templates_page() {
 	$wp_list_table = new NSP_Templates_List();
 	?>
 	<div class="wrap">
-		<h1 class="wp-heading-inline">Themes</h1>
-		<a href="<?php echo esc_url( admin_url( 'theme-install.php' ) ); ?>" class="hide-if-no-js page-title-action">Add New</a>
+		<h1 class="wp-heading-inline"><?php esc_html_e( 'Themes', 'nsp' ); ?></h1>
+		<a href="<?php echo esc_url( admin_url( 'theme-install.php' ) ); ?>" class="hide-if-no-js page-title-action"><?php esc_html_e( 'Add New', 'nsp' ); ?></a>
 
 		<hr class="wp-header-end">
 
@@ -75,10 +75,10 @@ class NSP_Templates_List extends WP_List_Table {
 
 	function get_columns() {
 		$columns = array(
-			'cb'          => 'Checkbox',
-			'screenshot'  => 'Image',
-			'name'        => 'Name',
-			'description' => 'Description',
+			'cb'          => esc_html__( 'Checkbox', 'nsp' ),
+			'screenshot'  => esc_html__( 'Image', 'nsp' ),
+			'name'        => esc_html__( 'Name', 'nsp' ),
+			'description' => esc_html__( 'Description', 'nsp' ),
 		);
 
 		return $columns;
@@ -86,7 +86,7 @@ class NSP_Templates_List extends WP_List_Table {
 
 	function column_cb( $item ) {
 		return sprintf(
-			'<label class="screen-reader-text" for="stylesheet_' . $item['ID'] . '">' . sprintf( __( 'Select %s', 'nsp' ), $item['name'] ) . '</label>'
+			'<label class="screen-reader-text" for="stylesheet_' . esc_attr( $item['ID'] ) . '">' . sprintf( __( 'Select %s', 'nsp' ), $item['name'] ) . '</label>'
 			. "<input type='checkbox' name='stylesheets[]' id='stylesheet_{$item['ID']}' value='{$item['ID']}' />"
 		);
 	}
@@ -151,7 +151,7 @@ class NSP_Templates_List extends WP_List_Table {
 		$output .= '<div class="template-info">';
 
 		// Version.
-		$output .= '<span>' . 'Version ' . esc_html( $item['version'] ) . '</span>';
+		$output .= '<span>' . sprintf( esc_html__( 'Version %s', 'nsp' ), esc_html( $item['version'] ) ) . '</span>';
 
 		// Author.
 		$author = '';
@@ -165,14 +165,14 @@ class NSP_Templates_List extends WP_List_Table {
 		}
 
 		if ( 0 !== strlen( $author ) ) {
-			$output .= ' | By ' . $author;
+			$output .= ' | ' . sprintf( esc_html__( 'By %s', 'nsp' ), $author );
 		}
 
 		// View Details.
 		$details = '';
 
 		if ( 0 !== strlen( $item['theme_uri'] ) ) {
-			$details = '<a href="' . esc_url( $item['theme_uri'] ) . '">View details</a>';
+			$details = '<a href="' . esc_url( $item['theme_uri'] ) . '">' . esc_html__( 'View Details', 'nsp' ) . '</a>';
 		}
 
 		if ( 0 !== strlen( $details ) ) {
@@ -204,7 +204,7 @@ class NSP_Templates_List extends WP_List_Table {
 		$output = array();
 
 		if ( true === $item['block_theme'] ) {
-			$output[] = '<a href="' . esc_url( admin_url( '/site-editor.php' ) ) . '">Editor</a>';
+			$output[] = '<a href="' . esc_url( admin_url( '/site-editor.php' ) ) . '">' . esc_html__( 'Editor', 'nsp' ) . '</a>';
 		} else {
 			global $submenu;
 			$appearance_items = $submenu['themes.php'];
@@ -230,9 +230,9 @@ class NSP_Templates_List extends WP_List_Table {
 			$current_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 			// Add URLs.
-			$output[] = '<a href="' . esc_url( add_query_arg( array( 'return' => $current_url ), wp_customize_url() ) ) . '">Customize</a>';
-			$output[] = '<a href="' . esc_url( admin_url( '/widgets.php' ) ) . '">Widgets</a>';
-			$output[] = '<a href="' . esc_url( admin_url( '/nav-menus.php' ) ) . '">Menus</a>';
+			$output[] = '<a href="' . esc_url( add_query_arg( array( 'return' => $current_url ), wp_customize_url() ) ) . '">' . esc_html__( 'Customize', 'nsp' ) . '</a>';
+			$output[] = '<a href="' . esc_url( admin_url( '/widgets.php' ) ) . '">' . esc_html__( 'Widgets', 'nsp' ) . '</a>';
+			$output[] = '<a href="' . esc_url( admin_url( '/nav-menus.php' ) ) . '">' . esc_html__( 'Menus', 'nsp' ) . '</a>';
 			$output[] = '<a href="' . esc_url(
 				add_query_arg(
 					array(
@@ -241,7 +241,7 @@ class NSP_Templates_List extends WP_List_Table {
 					),
 					wp_customize_url()
 				)
-			) . '">Header</a>';
+			) . '">' . esc_html__( 'Header', 'nsp' ) . '</a>';
 			$output[] = '<a href="' . esc_url(
 				add_query_arg(
 					array(
@@ -250,7 +250,7 @@ class NSP_Templates_List extends WP_List_Table {
 					),
 					wp_customize_url()
 				)
-			) . '">Background</a>';
+			) . '">' . esc_html__( 'Background', 'nsp' ) . '</a>';
 
 			if ( is_array( $valid_items ) && 0 !== count( $valid_items ) ) {
 				foreach ( $valid_items as $slug ) {
@@ -289,7 +289,7 @@ class NSP_Templates_List extends WP_List_Table {
 				'_wpnonce'   => wp_create_nonce( 'activate_theme' ),
 			);
 
-			$actions['activate'] = '<a href="' . esc_url( add_query_arg( $params, $admin_page_url ) ) . '">Activate</a>';
+			$actions['activate'] = '<a href="' . esc_url( add_query_arg( $params, $admin_page_url ) ) . '">' . esc_html__( 'Activate', 'nsp' ) . '</a>';
 
 			// Add delete link.
 			$params = array(
@@ -298,7 +298,7 @@ class NSP_Templates_List extends WP_List_Table {
 				'_wpnonce'   => wp_create_nonce( 'delete_theme' ),
 			);
 
-			$actions['delete'] = '<a href="' . esc_url( add_query_arg( $params, $admin_page_url ) ) . '">Delete</a>';
+			$actions['delete'] = '<a href="' . esc_url( add_query_arg( $params, $admin_page_url ) ) . '">' . esc_html__( 'Delete', 'nsp' ) . '</a>';
 		}
 
 		$output = $row_value;
@@ -356,14 +356,14 @@ class NSP_Templates_List extends WP_List_Table {
 
 		$total_count = count( $this->items );
 
-		$views['all'] = '<a href="' . esc_url( admin_url( 'themes.php?page=templates' ) ) . '" class="current">All <span class="count">(' . absint( $total_count ) . ')</span></a>';
+		$views['all'] = '<a href="' . esc_url( admin_url( 'themes.php?page=templates' ) ) . '" class="current">' . sprintf( esc_html__( 'All %s', 'nsp' ), '<span class="count">(' . absint( $total_count ) . ')</span>' ) . '</a>';
 
 		return $views;
 	}
 
 	public function get_bulk_actions() {
 		$actions = array(
-			'bulk-delete' => 'Delete',
+			'bulk-delete' => esc_html__( 'Delete', 'nsp' ),
 		);
 
 		return $actions;

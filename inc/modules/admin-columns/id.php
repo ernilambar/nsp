@@ -34,7 +34,7 @@ add_action(
 				add_filter(
 					'manage_edit-' . $p . '_columns',
 					function( $columns ) {
-						$columns = nsp_add_array_item_to_position( $columns, array( 'nsp_id' => 'ID' ), 1 );
+						$columns = nsp_add_array_item_to_position( $columns, array( 'nsp_id' => esc_html__( 'ID', 'nsp' ) ), 1 );
 
 						return $columns;
 					},
