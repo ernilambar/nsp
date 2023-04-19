@@ -1,5 +1,4 @@
-import './scss/templates.scss';
-import './scss/columns.scss';
+import './scss/admin.scss';
 
 import './js/media.js';
 import './js/template.js';

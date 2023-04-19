@@ -115,27 +115,3 @@ add_action(
 		}
 	}
 );
-
-/**
- * Add Custom CSS.
- *
- * @since 1.0.0
- */
-add_action(
-	'admin_head',
-	function() {
-		?>
-	<style>
-		#wp-admin-bar-nsp-theme ul {
-			height: 100%;
-			max-height: 500px;
-		}
-		#wp-admin-bar-nsp-theme ul {
-			overflow: hidden;
-			overflow-y: auto;
-		}
-	</style>
-		<?php
-	}
-);
-
