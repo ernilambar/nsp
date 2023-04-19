@@ -10,7 +10,7 @@
   "globals": {
     "wp": true,
     "ajaxurl": true,
-    "NSP_COLUMNS": true,
+    "NSP_ADMIN": true,
     "jQuery": true
   },
   "rules": {

@@ -32,3 +32,31 @@ foreach ( $all_items as $item ) {
 		}
 	}
 }
+
+add_action(
+	'admin_enqueue_scripts',
+	function() {
+		wp_enqueue_media();
+
+		$script_asset_path = get_template_directory() . '/build/admin.asset.php';
+		$script_asset      = file_exists( $script_asset_path ) ? require $script_asset_path : array(
+			'dependencies' => array(),
+			'version'      => filemtime( __FILE__ ),
+		);
+
+		$script_asset['dependencies'][] = 'jquery';
+		$script_asset['dependencies'][] = 'jquery-ui-dialog';
+
+		wp_enqueue_style( 'nsp-jquery-ui', NSP_URL . '/third-party/jquery-ui/jquery-ui.css', array(), '1.8.1' );
+
+		wp_enqueue_style( 'nsp-admin', NSP_URL . '/build/admin.css', array(), $script_asset['version'] );
+		wp_enqueue_script( 'nsp-admin', NSP_URL . '/build/admin.js', $script_asset['dependencies'], $script_asset['version'], true );
+
+		$localized_data = array(
+			'thumbnail_default_url' => nsp_get_placeholder_image_url(),
+		);
+
+		wp_localize_script( 'nsp-admin', 'NSP_ADMIN', $localized_data );
+	},
+	99
+);
