@@ -1,6 +1,6 @@
-import $ from "jquery";
+import $ from 'jquery';
 
-jQuery( function( $ ) {
+$( function() {
 	const $nspDialog = $( '#nsp-template-dialog' );
 
 	const nspHandleTemplateUpdate = ( $opener, newFile ) => {
@@ -42,7 +42,7 @@ jQuery( function( $ ) {
 			resizable: false,
 			closeOnEscape: true,
 			minHeight: 200,
-			open( event, ui ) {
+			open() {
 				const currentTemplate = $opener.parent().find( '.template-file' ).text();
 
 				if ( currentTemplate ) {

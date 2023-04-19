@@ -36,6 +36,8 @@ foreach ( $all_items as $item ) {
 add_action(
 	'admin_enqueue_scripts',
 	function() {
+		add_thickbox();
+
 		wp_enqueue_media();
 
 		$script_asset_path = get_template_directory() . '/build/admin.asset.php';

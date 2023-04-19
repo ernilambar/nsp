@@ -1,8 +1,8 @@
-import $ from "jquery";
+import $ from 'jquery';
 
 let nspMediaFileFrame;
 
-jQuery( function( $ ) {
+$( function() {
 	// Remove Handling.
 	jQuery( document ).on( 'click', 'a.btn-nsp-image-delete', function( event ) {
 		event.preventDefault();

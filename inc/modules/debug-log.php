@@ -10,11 +10,12 @@
  *
  * @since 1.0.0
  */
-function nsp_addons_register_debug_log_page() {
-	add_management_page( 'Debug Log', 'Debug Log', 'manage_options', 'nsp-debug-log', 'nsp_addons_render_debug_log_page' );
-}
-
-add_action( 'admin_menu', 'nsp_addons_register_debug_log_page' );
+add_action(
+	'admin_menu',
+	function() {
+		add_management_page( esc_html__( 'Debug Log', 'nsp' ), esc_html__( 'Debug Log', 'nsp' ), 'manage_options', 'nsp-debug-log', 'nsp_addons_render_debug_log_page' );
+	}
+);
 
 /**
  * Render debug log page.
@@ -23,31 +24,15 @@ add_action( 'admin_menu', 'nsp_addons_register_debug_log_page' );
  */
 function nsp_addons_render_debug_log_page() {
 	?>
-	<div class="wrap">
-		<style>
-			.warning {
-				color: #ffb900;
-			}
-			.error {
-				color: #dc3232;
-			}
-			.trace {
-				display: block;
-				margin-top: 10px;
-				margin-bottom: -15px;
-			}
-			.timestamp {
-				color: #533ebb;
-				display: block;
-				margin-top: 15px;
-				font-weight: 600;
-			}
-		</style>
-		<h2>Debug Log</h2>
+	<div class="wrap wrap-debug-log">
+
+		<h2><?php esc_html_e( 'Debug Log', 'nsp' ); ?></h2>
+
 		<?php if ( nsp_debug_log_exists() ) : ?>
-			<p>
-				<a href="<?php echo esc_url( home_url( '/?debug_log' ) ); ?>" target="_blank">View Log</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo esc_url( admin_url() . '?nsp-delete-log=1&redir=' . admin_url( basename( $_SERVER['REQUEST_URI'] ) ) ); ?>">Delete Log</a>
-			</p>
+			<ul class="debug-log-links">
+				<li><a href="<?php echo esc_url( home_url( '/?log' ) ); ?>" target="_blank">View Log</a></li>
+				<li><a href="<?php echo esc_url( admin_url() . '?nsp-delete-log=1&redir=' . admin_url( basename( $_SERVER['REQUEST_URI'] ) ) ); ?>">Delete Log</a></li>
+			</ul>
 		<?php endif; ?>
 
 		<?php
@@ -67,17 +52,6 @@ function nsp_addons_render_debug_log_page() {
 			}
 		}
 		?>
-		<script>
-			window.addEventListener('DOMContentLoaded', (event) => {
-				var e = document.getElementById('log');
-				var newContent = e.innerHTML.replace(/PHP Warning/g, '<span class="warning">$&</span>');
-				newContent = newContent.replace(/PHP Fatal error/g, '<span class="error">$&</span>');
-				newContent = newContent.replace(/Stack trace:/g, '<span class="trace">$&</span>');
-				newContent = newContent.replace(/\[(.*?)UTC]/g, '<span class="timestamp">$&</span>');
-				e.innerHTML = newContent;
-			});
-		</script>
-
 	</div><!-- .wrap -->
 	<?php
 }
@@ -88,9 +62,11 @@ add_action(
 		if ( isset( $_REQUEST['nsp-delete-log'] ) && 1 === absint( $_REQUEST['nsp-delete-log'] ) ) {
 			$debug_file = ABSPATH . 'wp-content/debug.log';
 
-			$file = new NSP_File();
+			if ( file_exists( $debug_file ) ) {
+				$file = new NSP_File();
 
-			$file->load( $debug_file )->delete();
+				$file->load( $debug_file )->delete();
+			}
 
 			wp_safe_redirect( $_REQUEST['redir'] );
 			exit;
@@ -101,7 +77,7 @@ add_action(
 add_action(
 	'init',
 	function() {
-		if ( isset( $_REQUEST['debug_log'] ) ) {
+		if ( isset( $_REQUEST['log'] ) ) {
 			if ( nsp_debug_log_exists() ) {
 				?>
 				<style>
