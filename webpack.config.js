@@ -7,8 +7,7 @@ const CopyPlugin = require( 'copy-webpack-plugin' );
 module.exports = {
 	...defaultConfig,
 	entry: {
-		columns: path.resolve( __dirname, 'src', 'columns.js' ),
-		templates: path.resolve( __dirname, 'src', 'templates.js' ),
+		admin: path.resolve( __dirname, 'src', 'admin.js' ),
 	},
 	plugins: [
 		...defaultConfig.plugins,

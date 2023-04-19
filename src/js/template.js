@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 jQuery( function( $ ) {
 	const $nspDialog = $( '#nsp-template-dialog' );
 

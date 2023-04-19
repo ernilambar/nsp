@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 let nspMediaFileFrame;
 
 jQuery( function( $ ) {
@@ -25,7 +27,7 @@ jQuery( function( $ ) {
 				const response = JSON.parse( jqXHR.responseText );
 
 				if ( true === response.success ) {
-					$this.parent().parent().find( '.nsp-image-thumbnail' ).attr( 'src', NSP_COLUMNS.thumbnail_default_url );
+					$this.parent().parent().find( '.nsp-image-thumbnail' ).attr( 'src', NSP_ADMIN.thumbnail_default_url );
 					$this.parent().parent().find( '.btn-nsp-image-preview' ).attr( 'href', '' );
 					$this.parent().find( '.btn-nsp-image-add' ).removeClass( 'is-hidden' );
 					$this.parent().find( '.btn-nsp-image-preview' ).addClass( 'is-hidden' );

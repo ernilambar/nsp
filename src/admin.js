@@ -1,3 +1,4 @@
+import './scss/templates.scss';
 import './scss/columns.scss';
 
 import './js/media.js';
