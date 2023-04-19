@@ -1,0 +1,28 @@
+.wrap-debug-log {
+
+	.warning {
+		color: #ffb900;
+	}
+
+	.error {
+		color: #dc3232;
+	}
+
+	.trace {
+		display: block;
+		margin-top: 10px;
+		margin-bottom: -15px;
+	}
+
+	.timestamp {
+		color: #533ebb;
+		display: block;
+		margin-top: 15px;
+		font-weight: 600;
+	}
+
+	.debug-log-links {
+		display: flex;
+		gap: 10px;
+	}
+}

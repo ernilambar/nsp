@@ -39,19 +39,6 @@ function nsp_addons_render_templates_page() {
 }
 
 add_action(
-	'admin_enqueue_scripts',
-	function( $hook ) {
-		if ( 'appearance_page_templates' !== $hook ) {
-			return;
-		}
-
-		add_thickbox();
-
-		wp_enqueue_style( 'nsp-templates', NSP_URL . '/build/templates.css', array(), NSP_VERSION );
-	}
-);
-
-add_action(
 	'init',
 	function() {
 		if ( isset( $_GET['page'] ) && 'templates' === $_GET['page'] ) {
