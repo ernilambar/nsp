@@ -54,6 +54,11 @@ function nsp_get_options_items() {
 			'label' => esc_html__( 'Disable Debug Log', 'nsp' ),
 			'file'  => 'debug-log.php',
 		),
+		'disable_scheme'        => array(
+			'id'    => 'disable_scheme',
+			'label' => esc_html__( 'Disable Admin Scheme', 'nsp' ),
+			'file'  => 'scheme.php',
+		),
 	);
 }
 

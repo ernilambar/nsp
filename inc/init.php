@@ -11,6 +11,7 @@ NSP_Notify::init();
 require_once NSP_DIR . '/inc/classes/file.php';
 require_once NSP_DIR . '/inc/classes/assets.php';
 require_once NSP_DIR . '/inc/classes/woo.php';
+require_once NSP_DIR . '/inc/classes/scheme.php';
 require_once NSP_DIR . '/inc/classes/templates-list.php';
 
 // Load files.
