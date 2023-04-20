@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+dependencies:
+  ldcover:
+    specifier: ^3.5.1
+    version: 3.5.1
+
 devDependencies:
   '@wordpress/scripts':
     specifier: ^26.2.0
@@ -7563,6 +7568,11 @@ packages:
     dependencies:
       readable-stream: 2.3.8
     dev: true
+
+  /ldcover@3.5.1:
+    resolution: {integrity: sha512-ObHwHS0TC3JCX1vuqqgTRW/EKKKQ8S8U1qIJMd4rf0v0U3Ovbmkk2MurLxD2p38FvddlZdD/MopVIajAl3T06g==}
+    engines: {node: '>=10.14.1', npm: '>=6.4.1'}
+    dev: false
 
   /leven@3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}

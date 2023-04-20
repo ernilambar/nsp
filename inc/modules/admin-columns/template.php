@@ -50,18 +50,35 @@ add_action(
 	'admin_footer',
 	function() {
 		?>
-		<div id="nsp-template-dialog" title="<?php echo esc_attr__( 'Select Template', 'nsp' ); ?>" style="display:none;">
-			<?php $all_templates = wp_get_theme()->get_page_templates(); ?>
+		<div class="ldcv" id="nsp-template-dialog">
+			<div class="base">
+				<div class="inner nsp-modal">
+					<div class="nsp-modal-body">
+						<h2 class="nsp-modal-title">
+							<span class="nsp-modal-title-text"><?php esc_html_e( 'Select Template', 'nsp' ); ?></span>
+							<span class="nsp-modal-title-close" data-ldcv-set="0">&times;</span>
+						</h2>
+						<div class="nsp-modal-content">
+							<?php $all_templates = wp_get_theme()->get_page_templates(); ?>
 
-			<select name="nsp-select-template" id="nsp-select-template">
-				<option value=""><?php esc_html_e( '&mdash; Select &mdash;', 'nsp' ); ?></option>
+							<select name="nsp-select-template" id="nsp-select-template">
+								<option value=""><?php esc_html_e( '&mdash; Select &mdash;', 'nsp' ); ?></option>
 
-				<?php foreach ( $all_templates as $template_file => $template_title ) : ?>
-					<option value="<?php echo esc_attr( $template_file ); ?>"><?php echo esc_html( $template_title ); ?></option>
-				<?php endforeach; ?>
+								<?php foreach ( $all_templates as $template_file => $template_title ) : ?>
+									<option value="<?php echo esc_attr( $template_file ); ?>"><?php echo esc_html( $template_title ); ?></option>
+								<?php endforeach; ?>
 
-			</select><!-- #nsp-select-template -->
-		</div><!-- #nsp-template-dialog -->
+							</select><!-- #nsp-select-template -->
+
+						</div><!-- .nsp-modal-content -->
+
+						<div class="nsp-modal-buttons">
+							<button data-ldcv-set="1" class="button button-primary">Update</button>
+						</div><!-- .nsp-modal-buttons -->
+					</div>
+				</div>
+			</div>
+		</div>
 		<?php
 	}
 );

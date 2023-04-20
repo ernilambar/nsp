@@ -1,7 +1,10 @@
 import $ from 'jquery';
+import ldCover from '../../node_modules/ldCover/index.js';
 
 $( function() {
 	const $nspDialog = $( '#nsp-template-dialog' );
+
+	const ldcv = new ldCover( { root: '#nsp-template-dialog' } );
 
 	const nspHandleTemplateUpdate = ( $opener, newFile ) => {
 		$.ajax( {
@@ -36,31 +39,23 @@ $( function() {
 
 		const $opener = $( this );
 
-		$nspDialog.data( 'opener', $opener ).dialog( {
-			modal: true,
-			draggable: false,
-			resizable: false,
-			closeOnEscape: true,
-			minHeight: 200,
-			open() {
-				const currentTemplate = $opener.parent().find( '.template-file' ).text();
+		ldcv.on( 'toggle.on', function() {
+			const currentTemplate = $opener.parent().find( '.template-file' ).text();
 
-				if ( currentTemplate ) {
-					$( this ).find( 'select' ).children( `option[value="${ currentTemplate }"]` ).prop( 'selected', true );
-				} else {
-					$( this ).find( 'select' ).children( 'option' ).prop( 'selected', false );
-				}
-			},
-			buttons: [
-				{
-					text: 'Update',
-					click() {
-						const selectedFile = $( '#nsp-template-dialog' ).find( 'option:selected' ).val();
-						nspHandleTemplateUpdate( $opener, selectedFile );
-						$( this ).dialog( 'close' );
-					},
-				},
-			],
+			if ( currentTemplate ) {
+				$nspDialog.find( 'select' ).children( `option[value="${ currentTemplate }"]` ).prop( 'selected', true );
+			} else {
+				$nspDialog.find( 'select' ).children( 'option' ).prop( 'selected', false );
+			}
+		} );
+
+		ldcv.toggle();
+
+		ldcv.get().then( function( response ) {
+			if ( '1' === response ) {
+				const selectedFile = $nspDialog.find( 'option:selected' ).val();
+				nspHandleTemplateUpdate( $opener, selectedFile );
+			}
 		} );
 	} );
 } );

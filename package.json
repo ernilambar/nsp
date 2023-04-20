@@ -35,5 +35,8 @@
     "easy-replace-in-files": "^1.0.3",
     "node-wp-i18n": "^1.2.7",
     "shx": "^0.3.4"
+  },
+  "dependencies": {
+    "ldcover": "^3.5.1"
   }
 }
