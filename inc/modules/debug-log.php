@@ -77,7 +77,7 @@ add_action(
 add_action(
 	'init',
 	function() {
-		if ( isset( $_REQUEST['log'] ) ) {
+		if ( isset( $_GET['log'] ) ) {
 			if ( nsp_debug_log_exists() ) {
 				?>
 				<style>
