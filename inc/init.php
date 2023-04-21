@@ -47,11 +47,6 @@ add_action(
 			'version'      => filemtime( __FILE__ ),
 		);
 
-		$script_asset['dependencies'][] = 'jquery';
-		$script_asset['dependencies'][] = 'jquery-ui-dialog';
-
-		wp_enqueue_style( 'nsp-jquery-ui', NSP_URL . '/third-party/jquery-ui/jquery-ui.css', array(), '1.8.1' );
-
 		wp_enqueue_style( 'nsp-admin', NSP_URL . '/build/admin.css', array(), $script_asset['version'] );
 		wp_enqueue_script( 'nsp-admin', NSP_URL . '/build/admin.js', $script_asset['dependencies'], $script_asset['version'], true );
 
