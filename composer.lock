@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "ernilambar/optioner",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ernilambar/optioner.git",
-                "reference": "044f1fe779ed0b2a9917fa4c78e207b5c1591be1"
+                "reference": "b7ef22ac76b49afd6c2229451ff5909f794463f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ernilambar/optioner/zipball/044f1fe779ed0b2a9917fa4c78e207b5c1591be1",
-                "reference": "044f1fe779ed0b2a9917fa4c78e207b5c1591be1",
+                "url": "https://api.github.com/repos/ernilambar/optioner/zipball/b7ef22ac76b49afd6c2229451ff5909f794463f5",
+                "reference": "b7ef22ac76b49afd6c2229451ff5909f794463f5",
                 "shasum": ""
             },
             "require": {
@@ -44,9 +44,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ernilambar/optioner/issues",
-                "source": "https://github.com/ernilambar/optioner/tree/2.0.8"
+                "source": "https://github.com/ernilambar/optioner/tree/2.0.9"
             },
-            "time": "2023-01-29T07:43:19+00:00"
+            "time": "2023-04-30T09:04:01+00:00"
         },
         {
             "name": "yahnis-elsts/plugin-update-checker",
@@ -355,12 +355,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSExtra.git",
-                "reference": "d24e897319108cdbbf42d247e0c17a095c935f20"
+                "reference": "e46d5072b53d130316ccd94c2954a1b96fc1a941"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSExtra/zipball/d24e897319108cdbbf42d247e0c17a095c935f20",
-                "reference": "d24e897319108cdbbf42d247e0c17a095c935f20",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSExtra/zipball/e46d5072b53d130316ccd94c2954a1b96fc1a941",
+                "reference": "e46d5072b53d130316ccd94c2954a1b96fc1a941",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                 "issues": "https://github.com/PHPCSStandards/PHPCSExtra/issues",
                 "source": "https://github.com/PHPCSStandards/PHPCSExtra"
             },
-            "time": "2023-03-28T17:59:21+00:00"
+            "time": "2023-04-21T14:10:08+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
@@ -419,12 +419,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "0cfef5193e68e8ff179333d8ae937db62939b656"
+                "reference": "13d50f0e10b614049b91aadd5c48190ef3be8b17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/0cfef5193e68e8ff179333d8ae937db62939b656",
-                "reference": "0cfef5193e68e8ff179333d8ae937db62939b656",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/13d50f0e10b614049b91aadd5c48190ef3be8b17",
+                "reference": "13d50f0e10b614049b91aadd5c48190ef3be8b17",
                 "shasum": ""
             },
             "require": {
@@ -436,9 +436,8 @@
                 "ext-filter": "*",
                 "php-parallel-lint/php-console-highlighter": "^1.0",
                 "php-parallel-lint/php-parallel-lint": "^1.3.2",
-                "phpcsstandards/phpcsdevcs": "^1.1.3",
-                "phpunit/phpunit": "^4.8.36 || ^5.7.21 || ^6.0 || ^7.0 || ^8.0 || ^9.3",
-                "yoast/phpunit-polyfills": "^1.0.1"
+                "phpcsstandards/phpcsdevcs": "^1.1.6",
+                "yoast/phpunit-polyfills": "^1.0.5"
             },
             "default-branch": true,
             "type": "phpcodesniffer-standard",
@@ -486,7 +485,7 @@
                 "issues": "https://github.com/PHPCSStandards/PHPCSUtils/issues",
                 "source": "https://github.com/PHPCSStandards/PHPCSUtils"
             },
-            "time": "2023-04-17T16:27:27+00:00"
+            "time": "2023-04-29T12:47:18+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -552,19 +551,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress-Coding-Standards.git",
-                "reference": "de872bb43c5ad5acd7383e3e3292b85a57818c9a"
+                "reference": "fca9d9ef2dcd042658ccb9df16552f5048e7bb04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress-Coding-Standards/zipball/de872bb43c5ad5acd7383e3e3292b85a57818c9a",
-                "reference": "de872bb43c5ad5acd7383e3e3292b85a57818c9a",
+                "url": "https://api.github.com/repos/WordPress/WordPress-Coding-Standards/zipball/fca9d9ef2dcd042658ccb9df16552f5048e7bb04",
+                "reference": "fca9d9ef2dcd042658ccb9df16552f5048e7bb04",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
                 "php": ">=5.4",
                 "phpcsstandards/phpcsextra": "^1.0",
-                "phpcsstandards/phpcsutils": "^1.0",
+                "phpcsstandards/phpcsutils": "^1.0.5",
                 "squizlabs/php_codesniffer": "^3.7.2"
             },
             "require-dev": {
@@ -601,7 +600,7 @@
                 "source": "https://github.com/WordPress/WordPress-Coding-Standards",
                 "wiki": "https://github.com/WordPress/WordPress-Coding-Standards/wiki"
             },
-            "time": "2023-04-18T07:58:36+00:00"
+            "time": "2023-05-01T08:34:06+00:00"
         }
     ],
     "aliases": [],
