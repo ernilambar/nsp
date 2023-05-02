@@ -25,13 +25,26 @@ add_action(
 					'meta'  => array( 'target' => '_blank' ),
 				)
 			);
-			$admin_bar->add_menu(
-				array(
-					'id'    => 'nsp-view-customize',
-					'title' => esc_html__( 'Customize', 'nsp' ),
-					'href'  => wp_customize_url(),
-				)
-			);
+
+			$current_theme = wp_get_theme();
+
+			if ( $current_theme->is_block_theme() ) {
+				$admin_bar->add_menu(
+					array(
+						'id'    => 'nsp-site-editor',
+						'title' => esc_html__( 'Site Editor', 'nsp' ),
+						'href'  => admin_url( '/site-editor.php' ),
+					)
+				);
+			} else {
+				$admin_bar->add_menu(
+					array(
+						'id'    => 'nsp-view-customize',
+						'title' => esc_html__( 'Customize', 'nsp' ),
+						'href'  => wp_customize_url(),
+					)
+				);
+			}
 		}
 
 		// Quick front page edit link.
