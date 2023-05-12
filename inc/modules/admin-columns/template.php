@@ -50,7 +50,7 @@ add_action(
 	'admin_footer',
 	function() {
 		?>
-		<div class="ldcv" id="nsp-template-dialog">
+		<div class="ldcv" id="nsp-template-dialog" style="display:none;">
 			<div class="base">
 				<div class="inner nsp-modal">
 					<div class="nsp-modal-body">
