@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.5] - 2023-05-25
+
+* Implement release
+
 ## [1.0.4] - 2023-05-12
 
 * Fix template popup
