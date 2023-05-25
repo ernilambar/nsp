@@ -1,6 +1,6 @@
 {
   "name": "nsp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Dev helpers",
   "main_file": "nsp.php",
   "repository": {
@@ -17,26 +17,40 @@
     "lint:js:fix": "wp-scripts lint-js ./src webpack.config.js --fix",
     "preinstall": "npx only-allow pnpm",
     "version": "easy-replace-in-files",
+		"prerelease": "pnpm run deploy",
+    "release": "dotenv release-it -- --no-git --no-npm --no-increment",
     "pot": "wpi18n makepot --domain-path=languages --exclude=vendor,deploy,node_modules",
     "textdomain": "wpi18n addtextdomain --exclude=vendor,deploy,node_modules",
     "predeploy": "shx rm -rf vendor/ && composer install --no-dev --no-scripts -o && shx rm -rf build/ && pnpm run build",
-    "deploy": "shx rm -rf deploy/ && shx mkdir deploy && copy-files-from-to && cd deploy/ && cross-var shx mv temp $npm_package_name && cross-var bestzip ../$npm_package_name.zip * && cd .. && cross-var shx mv $npm_package_name.zip deploy/"
+    "deploy": "shx rm -rf deploy/ && shx mkdir deploy && copy-files-from-to --silent && cd deploy/ && cross-var shx mv temp $npm_package_name && cross-var bestzip ../$npm_package_name.zip * && cd .. && cross-var shx mv $npm_package_name.zip deploy/"
   },
   "browserslist": "> 1%, not dead",
-  "keywords": [],
+  "keywords": [ "wordpress" ],
   "author": "",
   "license": "MIT",
+  "release-it": {
+    "github": {
+      "release": true,
+      "changelog": false,
+      "releaseName": "${version}",
+      "assets": [
+        "deploy/*.zip"
+      ]
+    }
+  },
   "devDependencies": {
-    "@wordpress/scripts": "^26.4.0",
+    "@wordpress/scripts": "^26.5.0",
     "bestzip": "^2.2.1",
-    "copy-files-from-to": "^3.8.0",
+    "copy-files-from-to": "^3.9.0",
     "copy-webpack-plugin": "^11.0.0",
     "cross-var": "^1.1.0",
+    "dotenv-cli": "^7.2.1",
     "easy-replace-in-files": "^1.0.3",
     "node-wp-i18n": "^1.2.7",
+    "release-it": "^15.10.3",
     "shx": "^0.3.4"
   },
   "dependencies": {
-    "ldcover": "^3.5.1"
+    "ldcover": "^3.5.2"
   }
 }
