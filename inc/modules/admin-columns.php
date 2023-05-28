@@ -9,6 +9,7 @@
 require_once NSP_DIR . '/inc/modules/admin-columns/media.php';
 require_once NSP_DIR . '/inc/modules/admin-columns/id.php';
 require_once NSP_DIR . '/inc/modules/admin-columns/template.php';
+require_once NSP_DIR . '/inc/modules/admin-columns/slug.php';
 require_once NSP_DIR . '/inc/modules/admin-columns/image.php';
 require_once NSP_DIR . '/inc/modules/admin-columns/order.php';
 

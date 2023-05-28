@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.6] - 2023-05-28
+
+* Add slug column
+
 ## [1.0.5] - 2023-05-25
 
 * Implement release
