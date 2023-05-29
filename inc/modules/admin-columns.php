@@ -6,12 +6,23 @@
  */
 
 // Load columns.
-require_once NSP_DIR . '/inc/modules/admin-columns/media.php';
-require_once NSP_DIR . '/inc/modules/admin-columns/id.php';
-require_once NSP_DIR . '/inc/modules/admin-columns/template.php';
-require_once NSP_DIR . '/inc/modules/admin-columns/slug.php';
-require_once NSP_DIR . '/inc/modules/admin-columns/image.php';
-require_once NSP_DIR . '/inc/modules/admin-columns/order.php';
+
+$slugs = array(
+	'media',
+	'id',
+	'template',
+	'slug',
+	'image',
+	'order',
+);
+
+foreach ( $slugs as $slug ) {
+	$disable_status = nsp_get_option( 'disable_column_' . $slug );
+
+	if ( true !== $disable_status ) {
+		require_once NSP_DIR . '/inc/modules/admin-columns/' . $slug . '.php';
+	}
+}
 
 add_filter(
 	'pre_get_posts',

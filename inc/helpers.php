@@ -62,6 +62,41 @@ function nsp_get_options_items() {
 	);
 }
 
+function nsp_get_admin_columns_options_details() {
+	return array(
+		'disable_column_id'       => array(
+			'id'    => 'disable_column_id',
+			'label' => esc_html__( 'Disable ID', 'nsp' ),
+			'file'  => 'id.php',
+		),
+		'disable_column_template' => array(
+			'id'    => 'disable_column_template',
+			'label' => esc_html__( 'Disable Template', 'nsp' ),
+			'file'  => 'template.php',
+		),
+		'disable_column_slug'     => array(
+			'id'    => 'disable_column_slug',
+			'label' => esc_html__( 'Disable Slug', 'nsp' ),
+			'file'  => 'slug.php',
+		),
+		'disable_column_image'    => array(
+			'id'    => 'disable_column_image',
+			'label' => esc_html__( 'Disable Image', 'nsp' ),
+			'file'  => 'image.php',
+		),
+		'disable_column_order'    => array(
+			'id'    => 'disable_column_order',
+			'label' => esc_html__( 'Disable Order', 'nsp' ),
+			'file'  => 'order.php',
+		),
+		'disable_column_media'    => array(
+			'id'    => 'disable_column_media',
+			'label' => esc_html__( 'Disable Media Columns', 'nsp' ),
+			'file'  => 'media.php',
+		),
+	);
+}
+
 /**
  * Return option.
  *
@@ -100,6 +135,12 @@ function nsp_get_default_options() {
 	$def_options = array();
 
 	$all_items = nsp_get_options_items();
+
+	foreach ( $all_items as $item ) {
+		$def_options[ $item['id'] ] = false;
+	}
+
+	$all_items = nsp_get_admin_columns_options_details();
 
 	foreach ( $all_items as $item ) {
 		$def_options[ $item['id'] ] = false;

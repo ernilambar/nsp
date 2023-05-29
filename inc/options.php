@@ -29,26 +29,11 @@ add_action(
 			)
 		);
 
-		$obj->set_quick_links(
-			array(
-				array(
-					'text' => esc_html__( 'Plugin Page', 'nsp' ),
-					'url'  => 'https://github.com/ernilambar/nsp',
-					'type' => 'primary',
-				),
-				array(
-					'text' => esc_html__( 'Get Support', 'nsp' ),
-					'url'  => 'https://github.com/ernilambar/nsp/issues',
-					'type' => 'secondary',
-				),
-			)
-		);
-
-		// Tab: nsp_settings_tab.
+		// Tab: nsp_modules_tab.
 		$obj->add_tab(
 			array(
-				'id'    => 'nsp_settings_tab',
-				'title' => esc_html__( 'Settings', 'nsp' ),
+				'id'    => 'nsp_modules_tab',
+				'title' => esc_html__( 'Modules', 'nsp' ),
 			)
 		);
 
@@ -56,7 +41,29 @@ add_action(
 
 		foreach ( $all_items as $item ) {
 			$obj->add_field(
-				'nsp_settings_tab',
+				'nsp_modules_tab',
+				array(
+					'id'      => $item['id'],
+					'type'    => 'toggle',
+					'title'   => $item['label'],
+					'default' => false,
+				)
+			);
+		}
+
+		// Tab: nsp_columns_tab.
+		$obj->add_tab(
+			array(
+				'id'    => 'nsp_columns_tab',
+				'title' => esc_html__( 'Columns', 'nsp' ),
+			)
+		);
+
+		$all_items = nsp_get_admin_columns_options_details();
+
+		foreach ( $all_items as $item ) {
+			$obj->add_field(
+				'nsp_columns_tab',
 				array(
 					'id'      => $item['id'],
 					'type'    => 'toggle',
