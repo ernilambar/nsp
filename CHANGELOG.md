@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.7] - 2023-05-29
+
+* Columns options
+
 ## [1.0.6] - 2023-05-28
 
 * Add slug column
