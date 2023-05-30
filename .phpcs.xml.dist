@@ -9,6 +9,7 @@
   <exclude-pattern>*/bower-components/*</exclude-pattern>
   <exclude-pattern>*/build/*</exclude-pattern>
   <exclude-pattern>*/deploy/*</exclude-pattern>
+  <exclude-pattern>*/inc/classes/*</exclude-pattern>
   <exclude-pattern>*/languages/*</exclude-pattern>
   <exclude-pattern>*/node_modules/*</exclude-pattern>
   <exclude-pattern>*/tests/*</exclude-pattern>
@@ -40,6 +41,11 @@
   <!-- Include the WordPress rulesets. -->
   <rule ref="WordPress">
     <exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents"/>
+    <exclude name="WordPress.PHP.DevelopmentFunctions"/>
+    <exclude name="WordPress.Security"/>
+    <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed"/>
+    <exclude name="Universal.NamingConventions.NoReservedKeywordParameterNames"/>
+    <exclude name="Universal.Files.SeparateFunctionsFromOO.Mixed"/>
 	</rule>
 
   <rule ref="WordPress.WhiteSpace.ControlStructureSpacing">

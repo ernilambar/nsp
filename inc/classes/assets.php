@@ -5,8 +5,18 @@
  * @package NSP
  */
 
+/**
+ * Class NSP_Assets.
+ *
+ * @since 1.0.0
+ */
 class NSP_Assets {
 
+	/**
+	 * Constructor.
+	 *
+	 * @since 1.0.0
+	 */
 	public function __construct() {
 		add_filter( 'style_loader_src', array( $this, 'update_query_string' ) );
 		add_filter( 'script_loader_src', array( $this, 'update_query_string' ) );
