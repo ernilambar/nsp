@@ -5,6 +5,11 @@
  * @package NSP
  */
 
+/**
+ * Ajax callback for setting thumbnail.
+ *
+ * @since 1.0.0
+ */
 function nsp_addons_image_ajax_callback_add() {
 	$output = array();
 
@@ -33,6 +38,11 @@ function nsp_addons_image_ajax_callback_add() {
 add_action( 'wp_ajax_nsp_image_add_featured', 'nsp_addons_image_ajax_callback_add' );
 add_action( 'wp_ajax_nopriv_nsp_image_add_featured', 'nsp_addons_image_ajax_callback_add' );
 
+/**
+ * Ajax callback to update thumbnail.
+ *
+ * @since 1.0.0
+ */
 function nsp_addons_image_ajax_callback_update() {
 	$output = array();
 
@@ -61,6 +71,11 @@ function nsp_addons_image_ajax_callback_update() {
 add_action( 'wp_ajax_nsp_image_update_featured', 'nsp_addons_image_ajax_callback_update' );
 add_action( 'wp_ajax_nopriv_nsp_image_update_featured', 'nsp_addons_image_ajax_callback_update' );
 
+/**
+ * Ajax callback for deleting thumbnail.
+ *
+ * @since 1.0.0
+ */
 function nsp_addons_image_ajax_callback_delete() {
 	$output = array();
 
@@ -85,6 +100,11 @@ function nsp_addons_image_ajax_callback_delete() {
 add_action( 'wp_ajax_nsp_image_delete_featured', 'nsp_addons_image_ajax_callback_delete' );
 add_action( 'wp_ajax_nopriv_nsp_image_delete_featured', 'nsp_addons_image_ajax_callback_delete' );
 
+/**
+ * Ajax callback to update template.
+ *
+ * @since 1.0.0
+ */
 function nsp_addons_template_ajax_callback_update() {
 	$output = array();
 

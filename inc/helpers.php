@@ -62,6 +62,13 @@ function nsp_get_options_items() {
 	);
 }
 
+/**
+ * Return admin columns details.
+ *
+ * @since 1.0.0
+ *
+ * @return array Details.
+ */
 function nsp_get_admin_columns_options_details() {
 	return array(
 		'disable_column_id'       => array(
@@ -236,6 +243,7 @@ function nsp_get_placeholder_image_url() {
  *
  * @since 1.0.0
  *
+ * @param string $size Image size.
  * @return array Image sizes details.
  */
 function nsp_get_image_sizes( $size = '' ) {
@@ -246,7 +254,7 @@ function nsp_get_image_sizes( $size = '' ) {
 	$get_intermediate_image_sizes = get_intermediate_image_sizes();
 
 	foreach ( $get_intermediate_image_sizes as $_size ) {
-		if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
+		if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ), true ) ) {
 			$sizes[ $_size ]['width']  = get_option( $_size . '_size_w' );
 			$sizes[ $_size ]['height'] = get_option( $_size . '_size_h' );
 			$sizes[ $_size ]['crop']   = (bool) get_option( $_size . '_crop' );
@@ -271,6 +279,16 @@ function nsp_get_image_sizes( $size = '' ) {
 }
 
 if ( ! function_exists( 'str_contains' ) ) {
+
+	/**
+	 * Determine if a string contains a given substring.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $haystack The string to search in.
+	 * @param string $needle The substring to search for in the haystack.
+	 * @return array Image sizes details.
+	 */
 	function str_contains( string $haystack, string $needle ) {
 		return empty( $needle ) || strpos( $haystack, $needle ) !== false;
 	}

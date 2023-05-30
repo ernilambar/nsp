@@ -17,6 +17,11 @@ add_action(
 	}
 );
 
+/**
+ * Render templates admin page.
+ *
+ * @since 1.0.0
+ */
 function nsp_addons_render_templates_page() {
 	$wp_list_table = new NSP_Templates_List();
 	?>
@@ -75,7 +80,7 @@ add_action(
 			}
 
 			// Bulk delete.
-			if ( ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'bulk-delete' ) || ( isset( $_REQUEST['action2'] ) && $_REQUEST['action2'] === 'bulk-delete' ) ) {
+			if ( ( isset( $_REQUEST['action'] ) && 'bulk-delete' === $_REQUEST['action'] ) || ( isset( $_REQUEST['action2'] ) && 'bulk-delete' === $_REQUEST['action2'] ) ) {
 				$nonce = wp_unslash( $_REQUEST['_wpnonce'] );
 
 				if ( wp_verify_nonce( $nonce, 'bulk-templates' ) ) {

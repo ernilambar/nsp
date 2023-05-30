@@ -5,6 +5,11 @@
  * @package NSP
  */
 
+/**
+ * NSP_Scheme class.
+ *
+ * @since 1.0.0
+ */
 class NSP_Scheme {
 
 	public function __construct() {

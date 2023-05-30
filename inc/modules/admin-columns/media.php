@@ -88,6 +88,7 @@ function nsp_render_media_image_sizes_field() {
 			<tr>
 				<td><?php echo absint( $cnt ); ?></td>
 				<td><?php echo esc_html( $key ); ?></td>
+				<?php /* translators: 1: width, 2: height */ ?>
 				<td><?php echo sprintf( esc_html__( '%1$s X %2$s', 'nsp' ), absint( $item['width'] ), absint( $item['height'] ) ); ?></td>
 				<td><?php echo ( $item['crop'] ) ? 'Y' : ''; ?></td>
 			</tr>

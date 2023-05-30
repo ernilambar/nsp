@@ -5,5 +5,5 @@
  * @package NSP
  */
 
-
+// Init scheme.
 new NSP_Scheme();
