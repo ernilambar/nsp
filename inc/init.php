@@ -36,7 +36,7 @@ foreach ( $all_items as $item ) {
 
 add_action(
 	'admin_enqueue_scripts',
-	function() {
+	function () {
 		add_thickbox();
 
 		wp_enqueue_media();

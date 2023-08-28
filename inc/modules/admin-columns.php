@@ -26,7 +26,7 @@ foreach ( $slugs as $slug ) {
 
 add_filter(
 	'pre_get_posts',
-	function( $query ) {
+	function ( $query ) {
 		if ( ! is_admin() ) {
 			return;
 		}

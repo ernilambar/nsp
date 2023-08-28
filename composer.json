@@ -6,7 +6,7 @@
 	"require": {
 		"php": ">=5.6",
 		"ernilambar/optioner": "^2.0",
-		"yahnis-elsts/plugin-update-checker": "^5.1"
+		"yahnis-elsts/plugin-update-checker": "^5.2"
 	},
 	"scripts": {
 		"pc:info": "@php ./vendor/bin/phpcs -i",
@@ -19,7 +19,7 @@
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
 		"phpcompatibility/phpcompatibility-wp": "^2.1",
-		"wp-coding-standards/wpcs": "dev-develop"
+		"wp-coding-standards/wpcs": "^3.0"
 	},
 	"config": {
 		"allow-plugins": {
