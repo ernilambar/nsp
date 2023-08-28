@@ -12,7 +12,7 @@
  */
 add_action(
 	'admin_menu',
-	function() {
+	function () {
 		add_management_page( esc_html__( 'Debug Log', 'nsp' ), esc_html__( 'Debug Log', 'nsp' ), 'manage_options', 'nsp-debug-log', 'nsp_addons_render_debug_log_page' );
 	}
 );
@@ -58,7 +58,7 @@ function nsp_addons_render_debug_log_page() {
 
 add_action(
 	'admin_init',
-	function() {
+	function () {
 		if ( isset( $_REQUEST['nsp-delete-log'] ) && 1 === absint( $_REQUEST['nsp-delete-log'] ) ) {
 			$debug_file = ABSPATH . 'wp-content/debug.log';
 
@@ -76,7 +76,7 @@ add_action(
 
 add_action(
 	'init',
-	function() {
+	function () {
 		if ( isset( $_GET['log'] ) ) {
 			if ( nsp_debug_log_exists() ) {
 				?>

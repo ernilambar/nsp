@@ -14,7 +14,7 @@ use Nilambar\Optioner\Optioner;
  */
 add_action(
 	'optioner_admin_init',
-	function() {
+	function () {
 		$obj = new Optioner();
 
 		$obj->set_page(

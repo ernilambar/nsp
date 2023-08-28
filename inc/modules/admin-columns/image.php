@@ -7,7 +7,7 @@
 
 add_action(
 	'init',
-	function() {
+	function () {
 		$all_cpts = nsp_get_post_types();
 
 		if ( empty( $all_cpts ) ) {
@@ -18,7 +18,7 @@ add_action(
 
 		$post_types = array_filter(
 			$post_types,
-			function( $item ) {
+			function ( $item ) {
 				if ( ! in_array( $item, array( 'attachment', 'e-landing-page', 'elementor_library', 'product' ), true ) ) {
 					return $item;
 				}
@@ -37,7 +37,7 @@ add_action(
 
 				add_filter(
 					'manage_edit-' . $p . '_columns',
-					function( $columns ) {
+					function ( $columns ) {
 						$columns['nsp_image'] = esc_html__( 'Image', 'nsp' );
 						return $columns;
 					},
@@ -47,7 +47,7 @@ add_action(
 
 				add_action(
 					'manage_' . $p . '_posts_custom_column',
-					function( $column, $post_id ) {
+					function ( $column, $post_id ) {
 						if ( 'nsp_image' === $column ) {
 							$post_thumbnail_id = get_post_thumbnail_id( $post_id );
 							$thumbnail_url     = nsp_get_placeholder_image_url();
@@ -87,7 +87,7 @@ add_action(
 
 				add_filter(
 					'manage_edit-' . $p . '_sortable_columns',
-					function( $cols ) {
+					function ( $cols ) {
 						$cols['nsp_image'] = 'nsp_image';
 						return $cols;
 					}

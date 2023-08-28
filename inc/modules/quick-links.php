@@ -14,7 +14,7 @@
  */
 add_action(
 	'admin_bar_menu',
-	function( $admin_bar ) {
+	function ( $admin_bar ) {
 		// View Site link.
 		if ( is_admin() ) {
 			$admin_bar->add_menu(
@@ -110,7 +110,7 @@ add_action(
  */
 add_action(
 	'init',
-	function() {
+	function () {
 		if ( isset( $_GET['nsp-switch'] ) && ! empty( $_GET['nsp-switch'] ) ) {
 			$theme = wp_get_theme( $_GET['nsp-switch'] );
 

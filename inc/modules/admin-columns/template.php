@@ -7,10 +7,10 @@
 
 add_action(
 	'init',
-	function() {
+	function () {
 		add_filter(
 			'manage_edit-page_columns',
-			function( $columns ) {
+			function ( $columns ) {
 				$columns['nsp_template'] = esc_html__( 'Template', 'nsp' );
 				return $columns;
 			},
@@ -20,7 +20,7 @@ add_action(
 
 		add_action(
 			'manage_page_posts_custom_column',
-			function( $column, $post_id ) {
+			function ( $column, $post_id ) {
 				if ( 'nsp_template' === $column ) {
 					echo '<a href="#" class="js-btn-template-switcher" data-id="' . absint( $post_id ) . '"><span class="dashicons dashicons-update"></span></a>&nbsp;';
 
@@ -37,7 +37,7 @@ add_action(
 
 		add_filter(
 			'manage_edit-page_sortable_columns',
-			function( $cols ) {
+			function ( $cols ) {
 				$cols['nsp_template'] = 'nsp_template';
 				return $cols;
 			}
@@ -48,7 +48,7 @@ add_action(
 
 add_action(
 	'admin_footer',
-	function() {
+	function () {
 		?>
 		<div class="ldcv" id="nsp-template-dialog" style="display:none;">
 			<div class="base">

@@ -248,7 +248,7 @@ class NSP_Message {
  */
 add_action(
 	'wp_footer',
-	function() {
+	function () {
 		// Start HTML comment.
 		echo '<!--' . "\n";
 
@@ -268,7 +268,7 @@ add_action(
  */
 add_action(
 	'nsp_debug_info_section',
-	function() {
+	function () {
 		global $content_width;
 		global $template;
 
@@ -285,7 +285,7 @@ add_action(
  */
 add_action(
 	'nsp_debug_info_section',
-	function() {
+	function () {
 		$included_files = get_included_files();
 		$stylesheet_dir = str_replace( '\\', '/', get_stylesheet_directory() );
 		$template_dir   = str_replace( '\\', '/', get_template_directory() );
@@ -300,7 +300,7 @@ add_action(
 
 		array_walk(
 			$included_files,
-			function( &$value, $key ) {
+			function ( &$value, $key ) {
 				$value = str_replace( ABSPATH . 'wp-content/', '', $value );
 			}
 		);

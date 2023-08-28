@@ -12,7 +12,7 @@
  */
 add_action(
 	'admin_menu',
-	function() {
+	function () {
 		add_theme_page( esc_html__( 'Templates', 'nsp' ), esc_html__( 'Templates', 'nsp' ), 'manage_options', 'templates', 'nsp_addons_render_templates_page', 1 );
 	}
 );
@@ -45,7 +45,7 @@ function nsp_addons_render_templates_page() {
 
 add_action(
 	'init',
-	function() {
+	function () {
 		if ( isset( $_GET['page'] ) && 'templates' === $_GET['page'] ) {
 			$cur_action     = ( isset( $_GET['action'] ) && 0 !== strlen( $_GET['action'] ) ) ? sanitize_text_field( $_GET['action'] ) : '';
 			$cur_stylesheet = ( isset( $_GET['stylesheet'] ) && 0 !== strlen( $_GET['stylesheet'] ) ) ? sanitize_text_field( $_GET['stylesheet'] ) : '';
