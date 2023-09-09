@@ -53,9 +53,9 @@
 		"version": "easy-replace-in-files",
 		"pot": "wpi18n makepot --domain-path=languages --exclude=vendor,deploy,node_modules",
 		"td": "wpi18n addtextdomain --exclude=vendor,deploy,node_modules",
-		"ready:build": "shx rm -rf build/ && pnpm run build",
+		"ready:build": "shx rm -rf build/ && bun run build",
 		"ready:vendor": "shx rm -rf vendor/ && composer install --no-dev --no-scripts -o",
-		"predeploy": "pnpm run ready:vendor && pnpm run ready:build",
+		"predeploy": "bun run ready:vendor && bun run ready:build",
 		"deploy": "packtor"
 	}
 }
